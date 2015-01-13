@@ -31,9 +31,28 @@ public void setup()
   }
 }
 public boolean palindrome(String word)
-{
-  //your code here
-  return false;
+{//bug: ALL words return true 
+  String newWord = "";
+  for(int z = 0; z<=word.length()-1;z++) {
+    if(word.charAt(z) != ' ') {
+      newWord = newWord + word.charAt(z);
+    }
+  }
+  String finalWord = "";
+  for(int y = 0; y<=newWord.length()-1;y++) {
+    if(Character.isLetter(newWord.charAt(y))==true) {
+      finalWord = finalWord + newWord.charAt(y);
+    }
+  }
+  finalWord = finalWord.toLowerCase();
+  int i = 0;
+  while(i<finalWord.length()) {
+    if(finalWord.charAt(i)==finalWord.charAt(finalWord.length()-1-i)) {
+      i++;
+    }
+    else {return false;}
+  }
+  return true;
 }
 
   static public void main(String[] passedArgs) {
